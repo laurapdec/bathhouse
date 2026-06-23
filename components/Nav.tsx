@@ -45,7 +45,7 @@ export default function Nav() {
           <ThemeToggle />
           <Link
             href="/donate"
-            className="px-4 py-2 bg-terracotta text-cream text-sm font-medium rounded-full hover:bg-terracotta-dark transition-colors"
+            className="px-4 py-2 bg-terracotta text-[#304948] text-sm font-medium rounded-full hover:bg-terracotta-dark transition-colors"
           >
             Donate
           </Link>
@@ -92,7 +92,7 @@ export default function Nav() {
           <Link
             href="/donate"
             onClick={() => setOpen(false)}
-            className="inline-block px-4 py-2 bg-terracotta text-cream text-sm font-medium rounded-full hover:bg-terracotta-dark transition-colors text-center"
+            className="inline-block px-4 py-2 bg-terracotta text-[#304948] text-sm font-medium rounded-full hover:bg-terracotta-dark transition-colors text-center"
           >
             Donate
           </Link>

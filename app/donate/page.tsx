@@ -90,7 +90,7 @@ export default function DonatePage() {
               </p>
               <Link
                 href="/schedule"
-                className="mt-auto inline-flex items-center gap-2 px-5 py-2.5 bg-terracotta text-[#2C2217] text-sm font-medium rounded-full hover:bg-terracotta-dark transition-colors w-fit"
+                className="mt-auto inline-flex items-center gap-2 px-5 py-2.5 bg-terracotta text-[#304948] text-sm font-medium rounded-full hover:bg-terracotta-dark transition-colors w-fit"
               >
                 See the schedule
                 <ArrowIcon />

@@ -47,7 +47,7 @@ export default function OpportunitiesPage() {
                   href={o.cta?.href ?? "/#contact"}
                   target={o.cta?.href.startsWith("http") ? "_blank" : undefined}
                   rel={o.cta?.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="flex-shrink-0 inline-flex items-center justify-center px-6 py-3 bg-terracotta text-cream text-sm font-medium rounded-full hover:bg-terracotta-dark transition-colors"
+                  className="flex-shrink-0 inline-flex items-center justify-center px-6 py-3 bg-terracotta text-[#304948] text-sm font-medium rounded-full hover:bg-terracotta-dark transition-colors"
                 >
                   {o.cta?.label ?? "Apply"}
                 </a>

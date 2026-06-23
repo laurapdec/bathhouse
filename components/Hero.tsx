@@ -34,7 +34,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="#schedule"
-              className="inline-flex items-center justify-center px-7 py-3.5 bg-terracotta text-cream font-medium rounded-full hover:bg-terracotta-dark transition-colors text-sm tracking-wide"
+              className="inline-flex items-center justify-center px-7 py-3.5 bg-terracotta text-[#304948] font-medium rounded-full hover:bg-terracotta-dark transition-colors text-sm tracking-wide"
             >
               See the Schedule
             </a>

@@ -167,9 +167,9 @@ export default function AboutPage() {
           </div>
           <Link
             href="/schedule"
-            className="inline-flex items-center justify-center px-7 py-3.5 bg-terracotta text-cream font-medium rounded-full hover:bg-terracotta-dark transition-colors text-sm flex-shrink-0"
+            className="inline-flex items-center justify-center px-7 py-3.5 bg-terracotta text-[#304948] font-medium rounded-full hover:bg-terracotta-dark transition-colors text-sm flex-shrink-0"
           >
-            View the Schedule
+            See the Schedule
           </Link>
         </div>
       </section>

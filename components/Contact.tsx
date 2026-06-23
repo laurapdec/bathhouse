@@ -20,7 +20,7 @@ export default function Contact() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
             <a
               href="mailto:info@bathhousearts.com"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-terracotta text-cream font-medium rounded-full hover:bg-terracotta-dark transition-colors text-sm"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-terracotta text-[#304948] font-medium rounded-full hover:bg-terracotta-dark transition-colors text-sm"
             >
               <EmailIcon />
               info@bathhousearts.com
