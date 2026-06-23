@@ -11,7 +11,7 @@ export default function TestimonialsPage() {
     <>
       <section className="bg-cream pt-16 pb-12 md:pt-24 md:pb-16 border-b border-sand">
         <div className="max-w-6xl mx-auto px-6">
-          <p className="text-xs font-medium tracking-widest uppercase text-terracotta mb-4">Testimonials</p>
+          <p className="text-xs font-medium tracking-widest uppercase text-ink mb-4">Testimonials</p>
           <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-ink leading-tight max-w-2xl">
             In their<br />
             <span className="italic text-terracotta">own words.</span>

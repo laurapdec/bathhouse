@@ -38,7 +38,7 @@ export default async function Schedule({ limit, totalEvents = TOTAL_EVENTS, tota
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
           <div>
-            <p className="text-xs font-medium tracking-widest uppercase text-terracotta mb-3">
+            <p className="text-xs font-medium tracking-widest uppercase text-ink mb-3">
               What&rsquo;s on
             </p>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-ink leading-tight">

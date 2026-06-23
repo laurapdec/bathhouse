@@ -40,7 +40,7 @@ export default function About({ preview }: Props) {
           {/* Right: copy */}
           <div className="space-y-6">
             <div>
-              <p className="text-xs font-medium tracking-widest uppercase text-terracotta mb-3">
+              <p className="text-xs font-medium tracking-widest uppercase text-ink mb-3">
                 Who we are
               </p>
               <h2 className="font-serif text-4xl md:text-5xl font-bold text-ink leading-tight">
@@ -76,7 +76,7 @@ export default function About({ preview }: Props) {
             {preview && (
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 text-sm font-medium text-terracotta hover:text-terracotta-dark transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-medium text-ink hover:text-terracotta-dark transition-colors"
               >
                 Read our full story
                 <svg

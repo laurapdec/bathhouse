@@ -17,7 +17,7 @@ export default function InstagramFeed({ posts }: Props) {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
           <div>
-            <p className="text-xs font-medium tracking-widest uppercase text-terracotta mb-3">
+            <p className="text-xs font-medium tracking-widest uppercase text-ink mb-3">
               Community
             </p>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-ink leading-tight">
@@ -76,11 +76,6 @@ function PlaceholderGrid() {
           <InstagramIcon className="text-ink-light/40 w-8 h-8" />
         </div>
       ))}
-      <div className="col-span-3 text-center mt-2">
-        <p className="text-xs text-ink-light italic">
-          Instagram feed (connect API to populate)
-        </p>
-      </div>
     </div>
   );
 }

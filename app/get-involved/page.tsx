@@ -12,7 +12,7 @@ export default function GetInvolvedPage() {
     <>
       <section className="bg-cream pt-16 pb-12 md:pt-24 md:pb-16 border-b border-sand">
         <div className="max-w-6xl mx-auto px-6">
-          <p className="text-xs font-medium tracking-widest uppercase text-terracotta mb-4">Get involved</p>
+          <p className="text-xs font-medium tracking-widest uppercase text-ink mb-4">Get involved</p>
           <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-ink leading-tight max-w-2xl">
             There&rsquo;s a place<br />
             <span className="italic text-terracotta">for you here.</span>

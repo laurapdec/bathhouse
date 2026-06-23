@@ -14,7 +14,7 @@ export default function AboutPage() {
       {/* Page header */}
       <section className="bg-cream pt-16 pb-12 md:pt-24 md:pb-16 border-b border-sand">
         <div className="max-w-6xl mx-auto px-6">
-          <p className="text-xs font-medium tracking-widest uppercase text-terracotta mb-4">
+          <p className="text-xs font-medium tracking-widest uppercase text-ink mb-4">
             Who we are
           </p>
           <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-ink leading-tight max-w-2xl">
@@ -66,21 +66,21 @@ export default function AboutPage() {
       </section>
 
       {/* Pay-what-you-can philosophy */}
-      <section className="bg-ink py-16 md:py-24">
+      <section className="bg-ink dark:bg-ink-bg py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <p className="text-xs font-medium tracking-widest uppercase text-terracotta">
               Our model
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-cream leading-tight">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-ink dark:text-white leading-tight">
               Pay what you can.<br />Really.
             </h2>
-            <p className="text-cream/70 text-lg leading-relaxed">
+            <p className=" text-cream/70 dark:text-white/70 text-lg leading-relaxed">
               We mean it. There&rsquo;s no suggested donation range designed to
               make you feel guilty. You decide what the class is worth to you,
               what you can genuinely afford, and you pay that.
             </p>
-            <p className="text-cream/70 text-lg leading-relaxed">
+            <p className=" text-cream/70 dark:text-white/70 text-lg leading-relaxed">
               People who can pay more make it possible for people who
               can&rsquo;t. That&rsquo;s the whole thing. It works because the
               community makes it work.
@@ -92,7 +92,7 @@ export default function AboutPage() {
       {/* Values */}
       <section className="bg-cream py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-6">
-          <p className="text-xs font-medium tracking-widest uppercase text-terracotta mb-4">
+          <p className="text-xs font-medium tracking-widest uppercase text-ink mb-4">
             What we stand for
           </p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-ink mb-12">
@@ -121,7 +121,7 @@ export default function AboutPage() {
       {/* People */}
       <section className="bg-cream py-16 md:py-24 border-t border-sand">
         <div className="max-w-6xl mx-auto px-6">
-          <p className="text-xs font-medium tracking-widest uppercase text-terracotta mb-4">
+          <p className="text-xs font-medium tracking-widest uppercase text-ink mb-4">
             The people
           </p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-ink mb-14">
@@ -183,12 +183,6 @@ const colors = ["#d4c58d", "#C97B6E", "#7A9068", "#304948", "#d2a660", "#6B5642"
 
 const people: { category: string; members: { name: string; role: string; initials: string; color: string }[] }[] = [
   {
-    category: "Team & Administration",
-    members: [
-      { name: "Your Name", role: "Founder & Director", initials: "YN", color: colors[0] },
-    ],
-  },
-  {
     category: "Instructors",
     members: [
       { name: "Bruno Rigobello", role: "Scene Study & Improv", initials: "BR", color: colors[1] },
@@ -198,19 +192,19 @@ const people: { category: string; members: { name: string; role: string; initial
     ],
   },
   {
-    category: "Collaborators",
+    category: "Supporters",
     members: [
-      { name: "Your Name", role: "Collaborator", initials: "YN", color: colors[2] },
-      { name: "Your Name", role: "Collaborator", initials: "YN", color: colors[5] },
+      { name: "Your Name", role: "Supporter", initials: "YN", color: colors[2] },
+      { name: "Your Name", role: "Supporter", initials: "YN", color: colors[5] },
     ],
   },
   {
     category: "Community",
     members: [
-      { name: "Your Name", role: "Student", initials: "YN", color: colors[4] },
-      { name: "Your Name", role: "Student", initials: "YN", color: colors[0] },
-      { name: "Your Name", role: "Student", initials: "YN", color: colors[3] },
-      { name: "Your Name", role: "Student", initials: "YN", color: colors[1] },
+      { name: "Your Name", role: "Alumni", initials: "YN", color: colors[4] },
+      { name: "Your Name", role: "Alumni", initials: "YN", color: colors[0] },
+      { name: "Your Name", role: "Alumni", initials: "YN", color: colors[3] },
+      { name: "Your Name", role: "Alumni", initials: "YN", color: colors[1] },
     ],
   },
 ];

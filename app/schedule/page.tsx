@@ -19,7 +19,7 @@ export default async function SchedulePage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
-              <p className="text-xs font-medium tracking-widest uppercase text-terracotta mb-4">
+              <p className="text-xs font-medium tracking-widest uppercase text-ink mb-4">
                 What&rsquo;s on
               </p>
               <h1 className="font-serif text-5xl md:text-6xl font-bold text-ink leading-tight">

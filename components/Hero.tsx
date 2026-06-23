@@ -15,7 +15,7 @@ export default function Hero() {
       <div className="relative max-w-6xl mx-auto px-6 py-24 md:py-32 grid md:grid-cols-2 gap-12 items-center">
         {/* Text */}
         <div className="space-y-8 animate-fade-up">
-          <div className="inline-block text-xs font-medium tracking-widest uppercase text-terracotta bg-terracotta/10 px-3 py-1.5 rounded-full">
+          <div className="inline-block text-xs font-medium tracking-widest uppercase text-ink bg-terracotta/10 px-3 py-1.5 rounded-full">
             New York City
           </div>
 

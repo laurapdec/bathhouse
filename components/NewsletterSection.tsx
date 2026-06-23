@@ -5,7 +5,7 @@ export default function NewsletterSection() {
     <section className="bg-sand/40 py-16 md:py-20 border-y border-sand">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-xl">
-          <p className="text-xs font-medium tracking-widest uppercase text-terracotta mb-3">
+          <p className="text-xs font-medium tracking-widest uppercase text-ink   mb-3">
             Stay in the loop
           </p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-ink leading-tight mb-3">
