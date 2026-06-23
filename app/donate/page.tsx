@@ -62,29 +62,48 @@ export default function DonatePage() {
       </section>
 
       {/* Other ways to help */}
-      <section className="bg-ink py-16 md:py-20">
+      <section className="bg-ink-bg py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="font-serif text-2xl md:text-3xl font-bold text-cream mb-8">
+          <p className="text-xs font-medium tracking-widest uppercase text-terracotta mb-3">
+            Beyond donations
+          </p>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-cream mb-12">
             Other ways to support
           </h2>
-          <div className="grid sm:grid-cols-2 gap-6">
-            <div className="bg-white/5 rounded-2xl p-6 space-y-2">
-              <h3 className="font-serif text-lg font-semibold text-cream">
+          <div className="grid sm:grid-cols-2 gap-8">
+            <div className="group rounded-2xl border border-cream/10 hover:border-terracotta/30 bg-white/5 p-8 flex flex-col gap-4 transition-colors">
+              <div className="w-11 h-11 rounded-full bg-terracotta/15 flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dcc88f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+              </div>
+              <h3 className="font-serif text-xl font-semibold text-cream">
                 Come to a class
               </h3>
               <p className="text-cream/60 text-sm leading-relaxed">
-                Pay what you can. Even a little helps sustain the space for
-                everyone.
+                Reserve a spot on Eventbrite and pay what you can. Every ticket
+                helps sustain the space for everyone.
               </p>
               <Link
                 href="/schedule"
-                className="inline-block mt-2 text-sm text-terracotta hover:text-terracotta-dark transition-colors"
+                className="mt-auto inline-flex items-center gap-2 px-5 py-2.5 bg-terracotta text-cream text-sm font-medium rounded-full hover:bg-terracotta-dark transition-colors w-fit"
               >
-                See the schedule →
+                See the schedule
+                <ArrowIcon />
               </Link>
             </div>
-            <div className="bg-white/5 rounded-2xl p-6 space-y-2">
-              <h3 className="font-serif text-lg font-semibold text-cream">
+            <div className="group rounded-2xl border border-cream/10 hover:border-terracotta/30 bg-white/5 p-8 flex flex-col gap-4 transition-colors">
+              <div className="w-11 h-11 rounded-full bg-terracotta/15 flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dcc88f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="0.5" fill="#dcc88f" />
+                </svg>
+              </div>
+              <h3 className="font-serif text-xl font-semibold text-cream">
                 Spread the word
               </h3>
               <p className="text-cream/60 text-sm leading-relaxed">
@@ -95,15 +114,24 @@ export default function DonatePage() {
                 href="https://instagram.com/bathhouse.arts"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-2 text-sm text-terracotta hover:text-terracotta-dark transition-colors"
+                className="mt-auto inline-flex items-center gap-2 px-5 py-2.5 border border-cream/20 text-cream text-sm font-medium rounded-full hover:border-cream/50 hover:bg-cream/5 transition-colors w-fit"
               >
-                @bathhouse.arts →
+                @bathhouse.arts
+                <ArrowIcon />
               </a>
             </div>
           </div>
         </div>
       </section>
     </>
+  );
+}
+
+function ArrowIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M5 12h14M12 5l7 7-7 7" />
+    </svg>
   );
 }
 
@@ -117,10 +145,5 @@ const impacts = [
     icon: "⌂",
     title: "Space & equipment",
     body: "Keeping a dedicated space in New York City isn't cheap. Your support keeps the lights on and the room available.",
-  },
-  {
-    icon: "✦",
-    title: "Artist fees",
-    body: "We pay our teachers fairly. Donations help us honor the work of artists who give their time and expertise to the community.",
   },
 ];
