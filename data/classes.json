@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "name": "Scene Study",
+    "teacher": "Maria Okonkwo",
+    "date": "2026-06-07",
+    "time": "2:00 PM – 4:00 PM",
+    "location": "Studio A",
+    "level": "All levels"
+  },
+  {
+    "id": "2",
+    "name": "Meisner Technique",
+    "teacher": "James Ferrera",
+    "date": "2026-06-09",
+    "time": "7:00 PM – 9:00 PM",
+    "location": "Main Stage",
+    "level": "Intermediate"
+  },
+  {
+    "id": "3",
+    "name": "Voice & Text",
+    "teacher": "Sasha Delacroix",
+    "date": "2026-06-11",
+    "time": "6:30 PM – 8:30 PM",
+    "location": "Studio B",
+    "level": "All levels"
+  },
+  {
+    "id": "4",
+    "name": "Improv Foundations",
+    "teacher": "Tomás Rivera",
+    "date": "2026-06-14",
+    "time": "11:00 AM – 1:00 PM",
+    "location": "Main Stage",
+    "level": "Beginner"
+  },
+  {
+    "id": "5",
+    "name": "Physical Theater",
+    "teacher": "Nadia Chen",
+    "date": "2026-06-16",
+    "time": "7:00 PM – 9:30 PM",
+    "location": "Studio A",
+    "level": "Intermediate"
+  },
+  {
+    "id": "6",
+    "name": "Monologue Workshop",
+    "teacher": "Maria Okonkwo",
+    "date": "2026-06-18",
+    "time": "6:00 PM – 8:00 PM",
+    "location": "Studio B",
+    "level": "All levels"
+  }
+]

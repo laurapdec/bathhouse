@@ -1,0 +1,111 @@
+import Image from "next/image";
+import photo3 from "@/public/3.jpg";
+import photo4 from "@/public/4.jpg";
+import Link from "next/link";
+
+type Props = {
+  /** When true, shows a "Read our full story" link to /about */
+  preview?: boolean;
+};
+
+export default function About({ preview }: Props) {
+  return (
+    <section id="about" className="bg-sand/40 py-20 md:py-28">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          {/* Left: photos. natural sizes, like on a table */}
+          <div className="hidden md:flex items-start gap-4">
+            <div className="-rotate-2 shadow-lg ring-4 ring-cream flex-shrink-0">
+              <div className="overflow-hidden rounded-sm">
+                <Image
+                  src={photo3}
+                  alt="Bathhouse acting class"
+                  placeholder="blur"
+                  className="w-[228px] h-auto block"
+                />
+              </div>
+            </div>
+            <div className="rotate-2 shadow-md ring-4 ring-cream flex-shrink-0 mt-16">
+              <div className="overflow-hidden rounded-sm">
+                <Image
+                  src={photo4}
+                  alt="Bathhouse acting class"
+                  placeholder="blur"
+                  className="w-[192px] h-auto block"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Right: copy */}
+          <div className="space-y-6">
+            <div>
+              <p className="text-xs font-medium tracking-widest uppercase text-terracotta mb-3">
+                Who we are
+              </p>
+              <h2 className="font-serif text-4xl md:text-5xl font-bold text-ink leading-tight">
+                Theater belongs<br />to all of us.
+              </h2>
+            </div>
+
+            <p className="text-ink-mid leading-relaxed text-base md:text-lg">
+              We are a community-led space offering pay-what-you-can weekly
+              acting sessions rooted in movement, presence, ensemble connection,
+              and improvisation.
+            </p>
+
+            <p className="text-ink-mid leading-relaxed text-base md:text-lg">
+              Beginners are invited to explore. Veterans are encouraged to teach.
+              Each session runs for two hours, followed by an open stage: one
+              hour to workshop scenes, monologues, auditions, or simply express
+              yourself.
+            </p>
+
+            <blockquote className="border-l-2 border-terracotta pl-4 italic text-ink-mid text-sm leading-relaxed">
+              &ldquo;Some exercises are like showers. No matter how many you&rsquo;ve
+              taken, it&rsquo;s never going to be enough for the rest of your life.&rdquo;
+            </blockquote>
+
+            <div className="grid grid-cols-2 gap-6 pt-4 border-t border-sand">
+              <Stat value="Pay-What-You-Can" label="Every class, every time" />
+              <Stat value="All levels" label="No audition required" />
+              <Stat value="NYC" label="Community-rooted" />
+              <Stat value="Human-first" label="Not a factory" />
+            </div>
+
+            {preview && (
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 text-sm font-medium text-terracotta hover:text-terracotta-dark transition-colors"
+              >
+                Read our full story
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </Link>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Stat({ value, label }: { value: string; label: string }) {
+  return (
+    <div>
+      <p className="font-serif text-xl font-bold text-terracotta">{value}</p>
+      <p className="text-xs text-ink-mid mt-0.5">{label}</p>
+    </div>
+  );
+}

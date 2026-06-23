@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-playfair);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-cream: #F7F3EE;
+  --color-sand: #EDE4D8;
+  --color-terracotta: #d4c58d;
+  --color-terracotta-dark: #d2a660;
+  --color-rose: #C97B6E;
+  --color-sage: #7A9068;
+  --color-ink: #304948;
+  --color-ink-mid: #6B5642;
+  --color-ink-light: #9C876F;
+  --color-surface: #ffffff;
+  --color-ink-bg: #304948;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-cream);
+  color: #2C2217;
+}
+
+html, body, header, main, footer, section, nav, article, div, input, button, a, p, h1, h2, h3, span, blockquote, ul, li {
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+.dark {
+  --color-cream: #1a1714;
+  --color-sand: #272220;
+  --color-terracotta: #dcc88f;
+  --color-terracotta-dark: #d4aa62;
+  --color-ink: #e8e0d4;
+  --color-ink-mid: #c4b8a0;
+  --color-ink-light: #a89880;
+  --color-surface: #23201c;
+  --color-ink-bg: #3b2a1e;
+  color-scheme: dark;
+}
+
+.dark body {
+  color: #e8e0d4;
+}
+
+.dark .bg-ink-bg {
+  --color-cream: #F7F3EE;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .animate-fade-up {
+    animation: fade-up 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
 }
