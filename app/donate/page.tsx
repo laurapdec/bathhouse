@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import DonationPicker from "@/components/DonationPicker";
 
 export const metadata: Metadata = {
   title: "Donate",
@@ -28,10 +29,10 @@ export default function DonatePage() {
         </div>
       </section>
 
-      {/* Widget */}
+      {/* Donation picker */}
       <section className="bg-cream py-16 md:py-24">
         <div className="max-w-3xl mx-auto px-6">
-          <givebutter-widget id="jb5Ekp" />
+          <DonationPicker />
         </div>
       </section>
 
