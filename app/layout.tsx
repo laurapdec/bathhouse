@@ -40,7 +40,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased flex flex-col min-h-screen">
         <Nav />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 animate-page-enter">{children}</main>
         <Footer />
         <givebutter-widget id="jb5Ekp" />
         <Script src="https://givebutter.com/js/widget.js" strategy="afterInteractive" />

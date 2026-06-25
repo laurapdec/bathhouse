@@ -35,7 +35,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Page header */}
-      <section className="bg-cream pt-16 pb-12 md:pt-24 md:pb-16 border-b border-sand">
+      <section className="bg-cream pt-16 pb-12 md:pt-24 md:pb-16 border-b border-sand animate-curtain-rise">
         <div className="max-w-6xl mx-auto px-6">
           <p className="text-xs font-medium tracking-widest uppercase text-ink mb-4">
             Who we are

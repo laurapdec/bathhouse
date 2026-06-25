@@ -1,10 +1,11 @@
 import NewsletterSignup from "./NewsletterSignup";
+import Reveal from "./Reveal";
 
 export default function NewsletterSection() {
   return (
     <section className="bg-sand/40 py-16 md:py-20 border-y border-sand">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="max-w-xl">
+        <Reveal className="max-w-xl">
           <p className="text-xs font-medium tracking-widest uppercase text-ink   mb-3">
             Stay in the loop
           </p>
@@ -17,7 +18,7 @@ export default function NewsletterSection() {
             newsletter with updates.
           </p>
           <NewsletterSignup variant="light" />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 type InstagramPost = {
   id: string;
   imageUrl: string;
@@ -15,7 +17,7 @@ export default function InstagramFeed({ posts }: Props) {
   return (
     <section className="bg-cream py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+        <Reveal className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
           <div>
             <p className="text-xs font-medium tracking-widest uppercase text-ink mb-3">
               Community
@@ -33,7 +35,7 @@ export default function InstagramFeed({ posts }: Props) {
             Follow us on Instagram
             <ArrowRight />
           </a>
-        </div>
+        </Reveal>
 
         {isEmpty ? (
           <PlaceholderGrid />

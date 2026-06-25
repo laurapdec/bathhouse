@@ -2,6 +2,7 @@ import Image from "next/image";
 import photo3 from "@/public/3.jpg";
 import photo4 from "@/public/4.jpg";
 import Link from "next/link";
+import Reveal from "./Reveal";
 
 type Props = {
   /** When true, shows a "Read our full story" link to /about */
@@ -39,14 +40,14 @@ export default function About({ preview }: Props) {
 
           {/* Right: copy */}
           <div className="space-y-6">
-            <div>
+            <Reveal>
               <p className="text-xs font-medium tracking-widest uppercase text-ink mb-3">
                 Who we are
               </p>
               <h2 className="font-serif text-4xl md:text-5xl font-bold text-ink leading-tight">
                 Theater belongs<br />to all of us.
               </h2>
-            </div>
+            </Reveal>
 
             <p className="text-ink-mid leading-relaxed text-base md:text-lg">
               We are a community-led space offering pay-what-you-can weekly
@@ -61,17 +62,21 @@ export default function About({ preview }: Props) {
               yourself.
             </p>
 
+            <Reveal delay={200}>
             <blockquote className="border-l-2 border-terracotta pl-4 italic text-ink-mid text-sm leading-relaxed">
               &ldquo;Some exercises are like showers. No matter how many you&rsquo;ve
               taken, it&rsquo;s never going to be enough for the rest of your life.&rdquo;
             </blockquote>
+            </Reveal>
 
+            <Reveal delay={300}>
             <div className="grid grid-cols-2 gap-6 pt-4 border-t border-sand">
               <Stat value="Pay-What-You-Can" label="Every class, every time" />
               <Stat value="All levels" label="No audition required" />
               <Stat value="NYC" label="Community-rooted" />
               <Stat value="Human-first" label="Not a factory" />
             </div>
+            </Reveal>
 
             {preview && (
               <Link

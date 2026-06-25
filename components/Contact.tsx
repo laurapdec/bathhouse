@@ -1,16 +1,19 @@
+import Reveal from "./Reveal";
+import DrawSmiley from "./DrawSmiley";
+
 export default function Contact() {
   return (
     <section id="contact" className="bg-ink-bg py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-2xl mx-auto text-center space-y-8">
-          <div>
+          <Reveal>
             <p className="text-xs font-medium tracking-widest uppercase text-terracotta mb-3">
               Reach out
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-cream leading-tight">
-              Say hello.
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-cream leading-tight inline-flex items-center justify-center gap-3">
+              Say hello <DrawSmiley className="w-10 h-10 md:w-12 md:h-12 text-white inline-block" />
             </h2>
-          </div>
+          </Reveal>
 
           <p className="text-cream/70 text-lg leading-relaxed">
             Questions about classes, pay-what-you-can pricing, or just want to
