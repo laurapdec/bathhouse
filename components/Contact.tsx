@@ -26,7 +26,7 @@ export default function Contact() {
               info@bathhousearts.com
             </a>
             <a
-              href="https://www.instagram.com/direct/t/17846873070525646/"
+              href="https://ig.me/m/bathhouse.arts/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-cream/20 text-cream font-medium rounded-full hover:border-cream/50 hover:bg-cream/5 transition-colors text-sm"

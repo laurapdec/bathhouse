@@ -59,7 +59,7 @@ const ways = [
     icon: "✦",
     title: "Teach or lead a workshop",
     body: "Are you a working artist with something to share? We're always looking for collaborators to lead sessions.",
-    href: "https://www.instagram.com/direct/t/17846873070525646/",
+    href: "https://ig.me/m/bathhouse.arts/",
     cta: "Send us your pitch",
   },
   {
