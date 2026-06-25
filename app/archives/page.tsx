@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PhotoCarousel from "@/components/PhotoCarousel";
 
 export const metadata: Metadata = {
   title: "Archives",
@@ -74,6 +75,12 @@ export default function ArchivesPage() {
           <p className="text-ink-mid text-lg leading-relaxed max-w-xl mt-6">
             {archive.length} classes and events at Abrons Arts Center, Studios 353, and The Tank.
           </p>
+        </div>
+      </section>
+
+      <section className="bg-cream py-12 md:py-16">
+        <div className="max-w-6xl mx-auto px-6">
+          <PhotoCarousel />
         </div>
       </section>
 

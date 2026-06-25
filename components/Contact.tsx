@@ -26,6 +26,15 @@ export default function Contact() {
               info@bathhousearts.com
             </a>
             <a
+              href="https://www.instagram.com/direct/t/17846873070525646/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-cream/20 text-cream font-medium rounded-full hover:border-cream/50 hover:bg-cream/5 transition-colors text-sm"
+            >
+              <InstagramIcon />
+              DM us
+            </a>
+            <a
               href="https://wa.me/18628499335"
               target="_blank"
               rel="noopener noreferrer"
@@ -56,6 +65,26 @@ function EmailIcon() {
     >
       <rect x="2" y="4" width="20" height="16" rx="2" />
       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </svg>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
     </svg>
   );
 }

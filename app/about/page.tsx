@@ -1,12 +1,35 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import fs from "fs";
+import path from "path";
 import NewsletterSection from "@/components/NewsletterSection";
+import TeacherFeed from "@/components/TeacherFeed";
 
 export const metadata: Metadata = {
   title: "Who We Are",
   description:
     "Bathhouse Arts Initiative is a pay-what-you-can community acting space in New York City. Our story, mission, values, and the people behind it.",
 };
+
+function getTeacherPosts() {
+  const dir = path.join(process.cwd(), "public", "teachers");
+  if (!fs.existsSync(dir)) return [];
+  const files = fs.readdirSync(dir).filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f)).sort();
+  const postMap = new Map<string, string[]>();
+  for (const file of files) {
+    const match = file.match(/^(p_[^(]+)\(/);
+    const postId = match ? match[1] : file;
+    if (!postMap.has(postId)) postMap.set(postId, []);
+    postMap.get(postId)!.push(file);
+  }
+  return Array.from(postMap.entries()).map(([id, photos]) => ({
+    id,
+    photos,
+    url: `https://www.instagram.com/${id.replace("p_", "p/")}`,
+  }));
+}
+
+const teacherPosts = getTeacherPosts();
 
 export default function AboutPage() {
   return (
@@ -118,39 +141,84 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* People */}
+      {/* Photo gallery */}
       <section className="bg-cream py-16 md:py-24 border-t border-sand">
         <div className="max-w-6xl mx-auto px-6">
-          <p className="text-xs font-medium tracking-widest uppercase text-ink mb-4">
-            The people
-          </p>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-ink mb-14">
-            The room wouldn&rsquo;t exist without them.
-          </h2>
-
-          {people.map((group) => (
-            <div key={group.category} className="mb-14 last:mb-0">
-              <h3 className="text-xs font-medium tracking-widest uppercase text-ink-light mb-8 border-b border-sand pb-3">
-                {group.category}
-              </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                {group.members.map((p) => (
-                  <div key={p.name} className="flex flex-col items-center text-center gap-3">
-                    <div
-                      className="w-20 h-20 rounded-full flex items-center justify-center text-xl font-serif font-bold text-cream flex-shrink-0"
-                      style={{ backgroundColor: p.color }}
-                    >
-                      {p.initials}
-                    </div>
-                    <div>
-                      <p className="font-medium text-ink text-sm leading-tight">{p.name}</p>
-                      <p className="text-ink-light text-xs mt-0.5">{p.role}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+            <div>
+              <p className="text-xs font-medium tracking-widest uppercase text-ink mb-3">
+                Community
+              </p>
+              <h2 className="font-serif text-4xl md:text-5xl font-bold text-ink leading-tight">
+                @bathhouse.arts
+              </h2>
             </div>
-          ))}
+            <a
+              href="https://instagram.com/bathhouse.arts"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-medium text-ink-mid hover:text-terracotta transition-colors"
+            >
+              Follow us on Instagram
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </a>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {[
+              "p_DMuEVDBssBR(0).jpg",
+              "p_DMuEVDBssBR(1).jpg",
+              "p_DMuEVDBssBR(2).jpg",
+              "p_DMuEVDBssBR(3).jpg",
+              "p_DMuEVDBssBR(4).jpg",
+            ].map((photo, i) => (
+              <a
+                key={i}
+                href={`https://www.instagram.com/p/DMuEVDBssBR/?img_index=${i + 1}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`aspect-square overflow-hidden rounded-xl bg-sand group${
+                  i === 4 ? " col-span-2 md:col-span-1" : ""
+                }`}
+              >
+                <img
+                  src={`/whoweare/${photo}`}
+                  alt="Bathhouse Arts community"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  style={
+                    i === 2 ? { objectPosition: "center 25%" } :
+                    i === 3 ? { objectPosition: "center 75%" } :
+                    undefined
+                  }
+                />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Instructors */}
+      <section className="bg-cream py-16 md:py-24 border-t border-sand">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+            <div>
+              <p className="text-xs font-medium tracking-widest uppercase text-ink mb-3">
+                The people
+              </p>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-ink">
+                Our instructors
+              </h2>
+            </div>
+            <a
+              href="https://instagram.com/bathhouse.arts"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-medium text-ink-mid hover:text-terracotta transition-colors"
+            >
+              @bathhouse.arts
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </a>
+          </div>
+          <TeacherFeed posts={teacherPosts} />
         </div>
       </section>
 
@@ -178,36 +246,6 @@ export default function AboutPage() {
     </>
   );
 }
-
-const colors = ["#d4c58d", "#C97B6E", "#7A9068", "#304948", "#d2a660", "#6B5642"];
-
-const people: { category: string; members: { name: string; role: string; initials: string; color: string }[] }[] = [
-  {
-    category: "Instructors",
-    members: [
-      { name: "Bruno Rigobello", role: "Scene Study & Improv", initials: "BR", color: colors[1] },
-      { name: "Susana Yasan", role: "Physical Theater", initials: "SY", color: colors[2] },
-      { name: "Laura Petit", role: "Movement & Presence", initials: "LP", color: colors[4] },
-      { name: "James Wagner", role: "Physical Theater", initials: "JW", color: colors[3] },
-    ],
-  },
-  {
-    category: "Supporters",
-    members: [
-      { name: "Your Name", role: "Supporter", initials: "YN", color: colors[2] },
-      { name: "Your Name", role: "Supporter", initials: "YN", color: colors[5] },
-    ],
-  },
-  {
-    category: "Community",
-    members: [
-      { name: "Your Name", role: "Alumni", initials: "YN", color: colors[4] },
-      { name: "Your Name", role: "Alumni", initials: "YN", color: colors[0] },
-      { name: "Your Name", role: "Alumni", initials: "YN", color: colors[3] },
-      { name: "Your Name", role: "Alumni", initials: "YN", color: colors[1] },
-    ],
-  },
-];
 
 const values = [
   {

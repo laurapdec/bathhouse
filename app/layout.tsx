@@ -31,12 +31,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${dmSans.variable} ${playfair.variable}`} suppressHydrationWarning>
-      <body className="font-sans antialiased flex flex-col min-h-screen">
+      <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){var t=localStorage.getItem("theme");var d=t==="dark"||(t==null&&matchMedia("(prefers-color-scheme:dark)").matches);if(d)document.documentElement.classList.add("dark")})()`,
           }}
         />
+      </head>
+      <body className="font-sans antialiased flex flex-col min-h-screen">
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const CAMPAIGN = "jb5Ekp";
+const CAMPAIGN = "bathhouse";
 const oneTimePresets = [10, 25, 50, 100, 250];
 const monthlyPresets = [5, 10, 25, 50, 100];
 

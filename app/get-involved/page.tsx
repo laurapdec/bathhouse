@@ -51,7 +51,7 @@ const ways = [
   {
     icon: "◎",
     title: "Take a class",
-    body: "Show up. Pay what you can. No audition, no prerequisites. Our schedule has something for every level.",
+    body: "Pay what you can. No audition, no prerequisites. Reserve a spot through our schedule — we have something for every level.",
     href: "/schedule",
     cta: "See the schedule",
   },
@@ -59,8 +59,8 @@ const ways = [
     icon: "✦",
     title: "Teach or lead a workshop",
     body: "Are you a working artist with something to share? We're always looking for collaborators to lead sessions.",
-    href: "/opportunities",
-    cta: "See opportunities",
+    href: "https://www.instagram.com/direct/t/17846873070525646/",
+    cta: "Send us your pitch",
   },
   {
     icon: "⌂",

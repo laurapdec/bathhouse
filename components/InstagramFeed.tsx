@@ -61,20 +61,38 @@ export default function InstagramFeed({ posts }: Props) {
   );
 }
 
+const fallbackPhotos = [
+  "p_DMh2ZT7sEmm(0).jpg",
+  "p_DMh2ZT7sEmm(1).jpg",
+  "p_DMh2ZT7sEmm(2).jpg",
+  "p_DMh2ZT7sEmm(3).jpg",
+  "p_DMh2ZT7sEmm(4).jpg",
+  "p_DMh2ZT7sEmm(5).jpg",
+];
+
 function PlaceholderGrid() {
   return (
-    <div
-      className="grid grid-cols-3 gap-3 md:gap-4"
-      role="img"
-      aria-label="Instagram feed placeholder: will be populated once connected"
-    >
-      {Array.from({ length: 6 }).map((_, i) => (
-        <div
+    <div className="grid grid-cols-3 gap-3 md:gap-4">
+      {fallbackPhotos.map((photo, i) => (
+        <a
           key={i}
-          className="aspect-square rounded-xl bg-sand/60 border border-sand flex items-center justify-center"
+          href={`https://www.instagram.com/p/DMh2ZT7sEmm/?img_index=${i + 1}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="aspect-square overflow-hidden rounded-xl bg-sand group"
         >
-          <InstagramIcon className="text-ink-light/40 w-8 h-8" />
-        </div>
+          <img
+            src={`/instagram_fallback/${photo}`}
+            alt="Bathhouse Arts on Instagram"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            style={
+              i === 0 ? { objectPosition: "center 60%" } :
+              i === 4 ? { objectPosition: "center 30%" } :
+              i === 5 ? { objectPosition: "center 30%" } :
+              undefined
+            }
+          />
+        </a>
       ))}
     </div>
   );
