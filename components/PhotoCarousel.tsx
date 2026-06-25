@@ -39,15 +39,29 @@ function getStyles(dist: number) {
   };
 }
 
+function useIsMobile() {
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return mobile;
+}
+
 export default function PhotoCarousel() {
   const [current, setCurrent] = useState(0);
   const [animate, setAnimate] = useState(false);
-  const [sliding, setSliding] = useState(0); // -1, 0, 1
+  const [sliding, setSliding] = useState(0);
   const lockRef = useRef(false);
   const trackRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef(0);
   const touchDeltaX = useRef(0);
   const total = photos.length;
+  const isMobile = useIsMobile();
+  const slidePct = isMobile ? 78 : SLIDE_PCT;
+  const gapPct = isMobile ? 1 : GAP_PCT;
 
   const slide = useCallback(
     (dir: number) => {
@@ -100,8 +114,8 @@ export default function PhotoCarousel() {
     slides.push(wrap(current + i, total));
   }
 
-  const stride = SLIDE_PCT + GAP_PCT;
-  const restX = 50 - CENTER_IDX * stride - SLIDE_PCT / 2;
+  const stride = slidePct + gapPct;
+  const restX = 50 - CENTER_IDX * stride - slidePct / 2;
   const tx = restX - sliding * stride;
 
   return (
@@ -116,7 +130,7 @@ export default function PhotoCarousel() {
           ref={trackRef}
           className="flex py-6"
           style={{
-            gap: `${GAP_PCT}%`,
+            gap: `${gapPct}%`,
             transform: `translateX(${tx}%)`,
             transition: animate ? `transform ${DURATION} ${EASING}` : "none",
           }}
@@ -132,7 +146,7 @@ export default function PhotoCarousel() {
                 key={`slot-${i}`}
                 className="flex-shrink-0"
                 style={{
-                  width: `${SLIDE_PCT}%`,
+                  width: `${slidePct}%`,
                   opacity,
                   filter: blur > 0.1 ? `blur(${blur}px)` : "none",
                   transform: `scale(${scale})`,
