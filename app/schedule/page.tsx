@@ -3,7 +3,8 @@ import { getEvents } from "@/lib/eventbrite";
 import type { Event } from "@/lib/eventbrite";
 import ClassCard from "@/components/ClassCard";
 import NewsletterSection from "@/components/NewsletterSection";
-import { longFormCourses, buildCalendarWeeks } from "@/lib/courses";
+import { longFormCourses } from "@/lib/courses";
+import CourseCalendar from "@/components/CourseCalendar";
 
 export const metadata: Metadata = {
   title: "Schedule",
@@ -50,9 +51,6 @@ export default async function SchedulePage() {
       {/* Long-form courses */}
       <section className="bg-cream py-16 md:py-20 border-t border-sand">
         <div className="max-w-6xl mx-auto px-6">
-          <p className="text-xs font-medium tracking-widest uppercase text-ink mb-4">
-            July – August 2026
-          </p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-ink mb-4">
             Long-Form Courses
           </h2>
@@ -60,45 +58,7 @@ export default async function SchedulePage() {
             Donation-based courses for sustained, process-driven work in small groups. These are not drop-in — participation requires commitment from beginning to end. Application required.
           </p>
 
-          {/* Weekly calendar */}
-          <div className="grid grid-cols-7 gap-px bg-sand rounded-2xl overflow-hidden border border-sand">
-            {/* Day headers */}
-            {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
-              <div key={day} className="bg-cream py-3 text-center text-xs font-medium tracking-widest uppercase text-ink-light">
-                {day}
-              </div>
-            ))}
-
-            {/* Calendar cells */}
-            {calendarWeeks.map((week, wi) =>
-              week.map((cell, di) => (
-                <div
-                  key={`${wi}-${di}`}
-                  className={`bg-surface/80 p-2 min-h-[100px] md:min-h-[120px] ${!cell ? "bg-cream/50" : ""}`}
-                >
-                  {cell && (
-                    <>
-                      <p className="text-xs text-ink-light mb-1">
-                        {cell.date.toLocaleDateString("en-US", { month: "short" })} {cell.date.getDate()}
-                      </p>
-                      <div className="space-y-1">
-                        {cell.courses.map((course) => (
-                          <a
-                            key={course.id}
-                            href={`#course-${course.id}`}
-                            className={`block text-xs font-medium px-1.5 py-1 rounded-md leading-tight transition-colors ${course.color}`}
-                          >
-                            <span className="hidden md:inline">{course.shortName}</span>
-                            <span className="md:hidden">{course.abbr}</span>
-                          </a>
-                        ))}
-                      </div>
-                    </>
-                  )}
-                </div>
-              ))
-            )}
-          </div>
+          <CourseCalendar />
 
           {/* Course details */}
           <div className="mt-12 space-y-6">
@@ -176,4 +136,3 @@ export default async function SchedulePage() {
   );
 }
 
-const calendarWeeks = buildCalendarWeeks();

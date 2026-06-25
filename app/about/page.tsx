@@ -89,21 +89,21 @@ export default function AboutPage() {
       </section>
 
       {/* Pay-what-you-can philosophy */}
-      <section className="bg-ink dark:bg-ink-bg py-16 md:py-24">
+      <section className="bg-ink-bg py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <p className="text-xs font-medium tracking-widest uppercase text-terracotta">
               Our model
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-ink dark:text-white leading-tight">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-cream leading-tight">
               Pay what you can.<br />Really.
             </h2>
-            <p className=" text-cream/70 dark:text-white/70 text-lg leading-relaxed">
+            <p className="text-cream/70 text-lg leading-relaxed">
               We mean it. There&rsquo;s no suggested donation range designed to
               make you feel guilty. You decide what the class is worth to you,
               what you can genuinely afford, and you pay that.
             </p>
-            <p className=" text-cream/70 dark:text-white/70 text-lg leading-relaxed">
+            <p className="text-cream/70 text-lg leading-relaxed">
               People who can pay more make it possible for people who
               can&rsquo;t. That&rsquo;s the whole thing. It works because the
               community makes it work.

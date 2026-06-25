@@ -3,7 +3,7 @@ import { getEvents } from "@/lib/eventbrite";
 import type { Event } from "@/lib/eventbrite";
 import ClassCard from "./ClassCard";
 import CountUp from "./CountUp";
-import { longFormCourses, buildCalendarWeeks } from "@/lib/courses";
+import CourseCalendar from "./CourseCalendar";
 
 // Swap these for live Eventbrite totals once available
 const TOTAL_EVENTS = 54;
@@ -56,49 +56,7 @@ export default async function Schedule({ limit, totalEvents = TOTAL_EVENTS, tota
             <p className="text-ink-mid text-sm mb-6">
               Long-form courses starting July 2026. Application required.
             </p>
-            <div className="grid grid-cols-7 gap-px bg-sand rounded-2xl overflow-hidden border border-sand">
-              {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
-                <div key={day} className="bg-cream py-2 text-center text-[10px] font-medium tracking-widest uppercase text-ink-light">
-                  {day}
-                </div>
-              ))}
-              {buildCalendarWeeks().slice(0, 4).map((week, wi) =>
-                week.map((cell, di) => (
-                  <div
-                    key={`${wi}-${di}`}
-                    className="bg-surface/60 p-1.5 min-h-[60px] md:min-h-[72px]"
-                  >
-                    {cell && (
-                      <>
-                        <p className="text-[10px] text-ink-light mb-0.5">
-                          {cell.date.toLocaleDateString("en-US", { month: "short" })} {cell.date.getDate()}
-                        </p>
-                        <div className="space-y-0.5">
-                          {cell.courses.map((course) => (
-                            <Link
-                              key={course.id}
-                              href={`/schedule#course-${course.id}`}
-                              className={`block text-[10px] font-medium px-1 py-0.5 rounded leading-tight ${course.color}`}
-                            >
-                              <span className="hidden md:inline">{course.shortName}</span>
-                              <span className="md:hidden">{course.abbr}</span>
-                            </Link>
-                          ))}
-                        </div>
-                      </>
-                    )}
-                  </div>
-                ))
-              )}
-            </div>
-            <div className="flex flex-wrap gap-4 mt-4">
-              {longFormCourses.map((c) => (
-                <Link key={c.id} href={`/schedule#course-${c.id}`} className="flex items-center gap-1.5 hover:opacity-70 transition-opacity">
-                  <span className={`w-2.5 h-2.5 rounded-full ${c.dot}`} />
-                  <span className="text-xs text-ink-mid">{c.title}</span>
-                </Link>
-              ))}
-            </div>
+            <CourseCalendar compact />
           </div>
         ) : (
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

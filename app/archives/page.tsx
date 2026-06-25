@@ -79,7 +79,7 @@ export default function ArchivesPage() {
       </section>
 
       <section className="bg-cream py-12 md:py-16">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-0 md:px-6">
           <PhotoCarousel />
         </div>
       </section>

@@ -51,14 +51,35 @@ export const longFormCourses = [
 
 export type Course = (typeof longFormCourses)[number];
 
-export function buildCalendarWeeks() {
-  const weeks: ({ date: Date; courses: Course[] } | null)[][] = [];
-  const start = new Date("2026-07-06T12:00:00");
-  const end = new Date("2026-08-23T12:00:00");
+export function buildCalendarWeeks(year?: number, month?: number) {
+  // Default: build for a fixed range. If year/month given, build for that month.
+  let start: Date;
+  let end: Date;
+
+  if (year != null && month != null) {
+    // month is 0-indexed
+    const firstDay = new Date(year, month, 1, 12);
+    const lastDay = new Date(year, month + 1, 0, 12);
+    // Pad to Monday start
+    const startDow = firstDay.getDay();
+    const mondayOffset = startDow === 0 ? -6 : 1 - startDow;
+    start = new Date(firstDay);
+    start.setDate(start.getDate() + mondayOffset);
+    // Pad to Sunday end
+    const endDow = lastDay.getDay();
+    const sundayOffset = endDow === 0 ? 0 : 7 - endDow;
+    end = new Date(lastDay);
+    end.setDate(end.getDate() + sundayOffset);
+  } else {
+    start = new Date("2026-07-06T12:00:00");
+    end = new Date("2026-08-23T12:00:00");
+  }
+
+  const weeks: ({ date: Date; courses: Course[]; inMonth: boolean } | null)[][] = [];
   const cursor = new Date(start);
 
   while (cursor <= end) {
-    const week: ({ date: Date; courses: Course[] } | null)[] = [];
+    const week: ({ date: Date; courses: Course[]; inMonth: boolean } | null)[] = [];
     for (let d = 0; d < 7; d++) {
       const date = new Date(cursor);
       const jsDay = date.getDay();
@@ -68,7 +89,8 @@ export function buildCalendarWeeks() {
         const e = new Date(c.endDate + "T23:59:59");
         return c.days.includes(dayOfWeek) && date >= s && date <= e;
       });
-      week.push({ date, courses: matching });
+      const inMonth = month != null ? date.getMonth() === month : true;
+      week.push({ date, courses: matching, inMonth });
       cursor.setDate(cursor.getDate() + 1);
     }
     weeks.push(week);
