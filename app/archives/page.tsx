@@ -73,7 +73,7 @@ export default function ArchivesPage() {
             <span className="italic text-terracotta">made together.</span>
           </h1>
           <p className="text-ink-mid text-lg leading-relaxed max-w-xl mt-6">
-            {archive.length} classes and events at Abrons Arts Center, Studios 353, and The Tank.
+            Classes and events at Abrons Arts Center, Studios 353, and The Tank.
           </p>
         </div>
       </section>
