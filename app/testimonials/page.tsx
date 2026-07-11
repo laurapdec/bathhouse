@@ -54,7 +54,7 @@ const testimonials = [
     name: "Jon-Mykul Bowen",
     role: "Theater artist, clown & actor",
     quote:
-      "Tonight I taught the Meisner in Music Level One workshop. It was so reaffirming to see people embrace what I was teaching. Everyone was so kind, receptive, and willing to try. It was incredibly rewarding to share what I know with people who genuinely appreciated it. It made me feel important.\n\nThey'll take care of you — that's the thing. I felt so supported and welcomed into the space. It's much scarier in your head than it is in reality.\n\nSo I would say: just do it.",
+      "Tonight I taught the Meisner in Music Level One workshop. It was so reaffirming to see people embrace what I was teaching. Everyone was so kind, receptive, and willing to try. It was incredibly rewarding to share what I know with people who genuinely appreciated it. It made me feel important.\n\nThey'll take care of you. That's the thing. I felt so supported and welcomed into the space. It's much scarier in your head than it is in reality.\n\nSo I would say: just do it.",
   },
   {
     name: "Luna Vintner",
@@ -66,7 +66,7 @@ const testimonials = [
     name: "James Wagner",
     role: "Movement teacher, actor, writer & director",
     quote:
-      "This experience was great. Bruno is an amazing marketer and brought together a wonderful group of people. It was a full class in a beautiful space — much larger than I expected.\n\nWe had room to move, and the participants were enthusiastic and grateful to be there, many of them encountering something entirely new.\n\nYou all genuinely take care of us. You're doing a great job spreading the word, and for me it was a wonderful opportunity to meet people I might never have encountered otherwise.",
+      "This experience was great. Bruno is an amazing marketer and brought together a wonderful group of people. It was a full class in a beautiful space, much larger than I expected.\n\nWe had room to move, and the participants were enthusiastic and grateful to be there, many of them encountering something entirely new.\n\nYou all genuinely take care of us. You're doing a great job spreading the word, and for me it was a wonderful opportunity to meet people I might never have encountered otherwise.",
   },
   {
     name: "Mikayla Czizik",
@@ -96,13 +96,13 @@ const testimonials = [
     name: "Catherine Núñez",
     role: "Actress, teaching artist & producer",
     quote:
-      "I love teaching, and teaching at Bathhouse was especially rewarding.\n\nIt was wonderful to see members of the artistic community — some with experience and some exploring this work for the first time — approach the workshop with openness, curiosity, and a willingness to play.\n\nThe energy they brought to the two-hour workshop was inspiring.\n\nAs a teacher, I found the experience deeply rewarding and enriching.\n\nYo creo que lo más importante es crear estos espacios que podamos autogestionar y ofrecer a una comunidad que está sedienta de recursos, oportunidades y lugares donde reunirse para crear arte.",
+      "I love teaching, and teaching at Bathhouse was especially rewarding.\n\nIt was wonderful to see members of the artistic community, some with experience and some exploring this work for the first time, approach the workshop with openness, curiosity, and a willingness to play.\n\nThe energy they brought to the two-hour workshop was inspiring.\n\nAs a teacher, I found the experience deeply rewarding and enriching.\n\nYo creo que lo más importante es crear estos espacios que podamos autogestionar y ofrecer a una comunidad que está sedienta de recursos, oportunidades y lugares donde reunirse para crear arte.",
   },
   {
     name: "Rachel Pacelli",
     role: "Actor, writer & producer",
     quote:
-      "This was incredible.\n\nI knew it was going to be good — I had a good feeling — but it exceeded every expectation I had.\n\nIt was so inspiring to watch people put themselves out there, take risks, and grow as artists.\n\nSeeing writers step out of their heads, reconnect with their bodies, and create from that place of freedom was incredibly moving.",
+      "This was incredible.\n\nI knew it was going to be good. I had a good feeling, but it exceeded every expectation I had.\n\nIt was so inspiring to watch people put themselves out there, take risks, and grow as artists.\n\nSeeing writers step out of their heads, reconnect with their bodies, and create from that place of freedom was incredibly moving.",
   },
   {
     name: "Laura Petit",

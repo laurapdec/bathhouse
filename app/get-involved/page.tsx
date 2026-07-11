@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   description: "Ways to participate in Bathhouse Arts Initiative as a student, volunteer, teacher, or supporter.",
 };
 
+const VOLUNTEER_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSe8w7od7omQf8e4e61ZLzTcFxirMlQkPaF-zFP5KAzFkcE3YA/viewform?usp=sharing";
+const COLLABORATE_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSdQD7KY_4RfL_MGBrZzHmphQ-fWI24tP6OVDBwgyt1DPJ7Q4w/viewform?usp=sharing";
+
 export default function GetInvolvedPage() {
   return (
     <>
@@ -33,9 +38,20 @@ export default function GetInvolvedPage() {
               <h2 className="font-serif text-2xl font-bold text-ink">{w.title}</h2>
               <p className="text-ink-mid leading-relaxed">{w.body}</p>
               {w.href && (
-                <Link href={w.href} className="inline-block text-sm font-medium text-terracotta hover:text-terracotta-dark transition-colors">
-                  {w.cta} →
-                </Link>
+                w.href.startsWith("http") ? (
+                  <a
+                    href={w.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block text-sm font-medium text-terracotta hover:text-terracotta-dark transition-colors"
+                  >
+                    {w.cta} →
+                  </a>
+                ) : (
+                  <Link href={w.href} className="inline-block text-sm font-medium text-terracotta hover:text-terracotta-dark transition-colors">
+                    {w.cta} →
+                  </Link>
+                )
               )}
             </div>
           ))}
@@ -51,23 +67,23 @@ const ways = [
   {
     icon: "◎",
     title: "Take a class",
-    body: "Pay what you can. No audition, no prerequisites. Reserve a spot through our schedule — we have something for every level.",
+    body: "Pay what you can. No audition, no prerequisites. Reserve a spot through our schedule. We have something for every level.",
     href: "/schedule",
     cta: "See the schedule",
   },
   {
     icon: "✦",
-    title: "Teach or lead a workshop",
-    body: "Are you a working artist with something to share? We're always looking for collaborators to lead sessions.",
-    href: "https://ig.me/m/bathhouse.arts/",
-    cta: "Send us your pitch",
+    title: "Join the Creative Directory",
+    body: "A directory of artists and creative professionals interested in teaching, collaborating, performing, or supporting Bathhouse projects. Being listed doesn't guarantee work — it's how we reach out when opportunities arise.",
+    href: COLLABORATE_FORM_URL,
+    cta: "Join the directory",
   },
   {
     icon: "⌂",
     title: "Volunteer",
     body: "Help us run the space: front of house, communications, events. A few hours goes a long way.",
-    href: "/#contact",
-    cta: "Get in touch",
+    href: VOLUNTEER_FORM_URL,
+    cta: "Fill out the volunteer form",
   },
   {
     icon: "↗",

@@ -55,7 +55,7 @@ export default async function SchedulePage() {
             Long-Form Courses
           </h2>
           <p className="text-ink-mid leading-relaxed max-w-2xl mb-12">
-            Donation-based courses for sustained, process-driven work in small groups. These are not drop-in — participation requires commitment from beginning to end. Application required.
+            Donation-based courses for sustained, process-driven work in small groups. These are not drop-in. Participation requires commitment from beginning to end. Application required.
           </p>
 
           <CourseCalendar />

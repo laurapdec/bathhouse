@@ -37,7 +37,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1 space-y-4">
             <p className="font-serif text-lg font-semibold text-cream leading-tight">
-              BathHouse<span className="text-terracotta"> Arts</span>
+              Bathhouse<span className="text-terracotta"> Arts</span>
             </p>
             <p className="text-cream/50 text-sm leading-relaxed">
               Pay-what-you-can acting classes and community in New York City.

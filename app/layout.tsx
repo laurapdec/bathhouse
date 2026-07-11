@@ -17,8 +17,8 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "BathHouse Arts Initiative",
-    template: "%s | BathHouse Arts Initiative",
+    default: "Bathhouse Arts Initiative",
+    template: "%s | Bathhouse Arts Initiative",
   },
   description:
     "A pay-what-you-can community acting space in New York City. Open to everyone.",

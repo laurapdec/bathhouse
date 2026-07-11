@@ -29,7 +29,7 @@ export default function Nav() {
           className="font-serif text-xl font-semibold text-ink tracking-tight leading-tight"
         >
           <Image src="/bathhouse.png" alt="Logo" width={24} height={30} className="inline-block ml-2 mb-4 w-6 h-auto" style={{ height: "auto" }} />
-          BathHouse<span className="text-terracotta"> Arts</span>
+          Bathhouse<span className="text-terracotta"> Arts</span>
         </Link>
 
         {/* Desktop links */}
