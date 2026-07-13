@@ -74,7 +74,7 @@ const ways = [
   {
     icon: "✦",
     title: "Join the Creative Directory",
-    body: "A directory of artists and creative professionals interested in teaching, collaborating, performing, or supporting Bathhouse projects. Being listed doesn't guarantee work — it's how we reach out when opportunities arise.",
+    body: "A directory of artists and creative professionals interested in teaching, collaborating, performing, or supporting Bathhouse projects. Being listed doesn't guarantee work. It's how we reach out when opportunities arise.",
     href: COLLABORATE_FORM_URL,
     cta: "Join the directory",
   },

@@ -47,6 +47,14 @@ export default function Contact() {
               WhatsApp us
             </a>
           </div>
+
+          <p className="text-cream/40 text-sm pt-2">
+            Or text <span className="text-cream/70 font-medium">BATHHOUSE</span> to{" "}
+            <a href="sms:53555?body=BATHHOUSE" className="text-cream/70 font-medium underline underline-offset-2 hover:text-cream transition-colors">
+              53555
+            </a>{" "}
+            to get our donation link by text.
+          </p>
         </div>
       </div>
     </section>

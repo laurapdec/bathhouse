@@ -1,3 +1,5 @@
+import { getStrangerStories } from "@/lib/strangers";
+
 export const STRANGERS_SUBMIT_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSfg92ts7Y_9KIPhUw5RAcSpaALOQr9_pu1XhOuinCqbovVQpQ/viewform?usp=sharing";
 
@@ -7,9 +9,9 @@ const sampleStories = [
   { label: "Story 3" },
 ];
 
-// Sample entries only swap in real transcribed submissions (with a fictitious
-// name standing in for the real person) as they come in.
-const storyBank = [
+// Placeholder entries used only until real transcribed submissions (dropped
+// as .txt files in content/strangers-in-the-park/) come in.
+const placeholderStoryBank = [
   {
     name: "Diane, Prospect Park",
     excerpt:
@@ -28,6 +30,25 @@ const storyBank = [
 ];
 
 export default function StrangersInThePark() {
+  const submittedStories = getStrangerStories();
+  const storyBank =
+    submittedStories.length > 0
+      ? submittedStories.map((story) => ({
+          slug: story.slug,
+          name: story.name,
+          title: story.title as string | undefined,
+          excerpt: story.excerpt,
+          paragraphs: story.paragraphs,
+        }))
+      : placeholderStoryBank.map((story) => ({
+          slug: story.name,
+          name: story.name,
+          title: undefined as string | undefined,
+          excerpt: story.excerpt,
+          paragraphs: [] as string[],
+        }));
+  const isPlaceholder = submittedStories.length === 0;
+
   return (
     <article className="border border-sand rounded-2xl p-8 hover:border-terracotta/40 transition-colors">
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8">
@@ -54,7 +75,7 @@ export default function StrangersInThePark() {
             href="#find-a-story"
             className="inline-flex items-center justify-center px-6 py-3 border border-terracotta text-terracotta text-sm font-medium rounded-full hover:bg-terracotta/10 transition-colors"
           >
-            Find a Story
+            Retell a Story
           </a>
         </div>
       </div>
@@ -73,29 +94,74 @@ export default function StrangersInThePark() {
       </div>
 
       <div id="find-a-story" className="scroll-mt-24">
-        <p className="text-xs font-medium tracking-widest uppercase text-ink-light mb-4">Find a Story</p>
+        <p className="text-xs font-medium tracking-widest uppercase text-ink-light mb-4">Retell a Story</p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {storyBank.map((story) => (
-            <div key={story.name} className="bg-sand/30 border border-sand rounded-2xl p-6 flex flex-col gap-4">
-              <span className="self-start inline-block text-xs font-medium bg-sand text-ink-light px-2.5 py-0.5 rounded-full">
-                Sample story
-              </span>
-              <div className="space-y-2 flex-1">
-                <p className="font-serif text-base font-semibold text-ink">{story.name}</p>
-                <p className="text-sm text-ink-mid leading-relaxed">{story.excerpt}</p>
+          {storyBank.map((story) => {
+            const hasMore = story.paragraphs.length > 1 || story.excerpt.endsWith("…");
+            return (
+              <div key={story.slug} className="bg-sand/30 border border-sand rounded-2xl p-6 flex flex-col gap-4">
+                <span className="self-start inline-block text-xs font-medium bg-sand text-ink-light px-2.5 py-0.5 rounded-full">
+                  {isPlaceholder ? "Sample story" : "Told by " + story.name}
+                </span>
+                <div className="space-y-2 flex-1">
+                  <p className="font-serif text-base font-semibold text-ink">{story.title ?? story.name}</p>
+                  {hasMore ? (
+                    <details className="group/story">
+                      <summary className="cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                        <p className="text-sm text-ink-mid leading-relaxed group-open/story:hidden">
+                          {story.excerpt}
+                        </p>
+                        <span className="mt-1.5 inline-flex items-center gap-1 text-xs font-medium text-ink-light hover:text-ink-mid transition-colors">
+                          <span className="group-open/story:hidden">Read full story</span>
+                          <span className="hidden group-open/story:inline">Show less</span>
+                          <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="transition-transform group-open/story:rotate-180"
+                            aria-hidden
+                          >
+                            <path d="M6 9l6 6 6-6" />
+                          </svg>
+                        </span>
+                      </summary>
+                      <div className="mt-3 space-y-3 text-sm text-ink-mid leading-relaxed">
+                        {story.paragraphs.map((paragraph, idx) => (
+                          <p key={idx}>{paragraph}</p>
+                        ))}
+                      </div>
+                    </details>
+                  ) : (
+                    <p className="text-sm text-ink-mid leading-relaxed">{story.excerpt}</p>
+                  )}
+                </div>
+                <a
+                  href={STRANGERS_SUBMIT_FORM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="self-center inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-terracotta text-[#304948] text-sm font-medium rounded-full hover:bg-terracotta-dark transition-colors"
+                >
+                  Submit your video
+                  <ArrowIcon />
+                </a>
               </div>
-              <a
-                href={STRANGERS_SUBMIT_FORM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-sm font-medium text-terracotta hover:text-terracotta-dark transition-colors"
-              >
-                Submit your video →
-              </a>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </article>
+  );
+}
+
+function ArrowIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M5 12h14M12 5l7 7-7 7" />
+    </svg>
   );
 }

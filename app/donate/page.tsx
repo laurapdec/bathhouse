@@ -71,7 +71,7 @@ export default function DonatePage() {
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-cream mb-12">
             Other ways to support
           </h2>
-          <div className="grid sm:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="group rounded-2xl border border-cream/10 hover:border-terracotta/30 bg-white/5 p-8 flex flex-col gap-4 transition-colors">
               <div className="w-11 h-11 rounded-full bg-terracotta/15 flex items-center justify-center">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dcc88f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -95,6 +95,28 @@ export default function DonatePage() {
                 See the schedule
                 <ArrowIcon />
               </Link>
+            </div>
+            <div className="group rounded-2xl border border-cream/10 hover:border-terracotta/30 bg-white/5 p-8 flex flex-col gap-4 transition-colors">
+              <div className="w-11 h-11 rounded-full bg-terracotta/15 flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dcc88f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+              </div>
+              <h3 className="font-serif text-xl font-semibold text-cream">
+                Text to give
+              </h3>
+              <p className="text-cream/60 text-sm leading-relaxed">
+                Text <span className="text-cream font-medium">BATHHOUSE</span> to{" "}
+                <span className="text-cream font-medium">53555</span> and we&rsquo;ll
+                text you back a link to donate.
+              </p>
+              <a
+                href="sms:53555?body=BATHHOUSE"
+                className="mt-auto inline-flex items-center gap-2 px-5 py-2.5 border border-cream/20 text-cream text-sm font-medium rounded-full hover:border-cream/50 hover:bg-cream/5 transition-colors w-fit"
+              >
+                Text BATHHOUSE to 53555
+                <ArrowIcon />
+              </a>
             </div>
             <div className="group rounded-2xl border border-cream/10 hover:border-terracotta/30 bg-white/5 p-8 flex flex-col gap-4 transition-colors">
               <div className="w-11 h-11 rounded-full bg-terracotta/15 flex items-center justify-center">

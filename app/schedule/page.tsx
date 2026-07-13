@@ -12,6 +12,10 @@ export const metadata: Metadata = {
     "Upcoming pay-what-you-can acting classes and workshops at Bathhouse Arts Initiative in New York City.",
 };
 
+// Re-check application deadlines at most once an hour, so "Apply" flips to
+// "Unavailable" on its own without needing a new deploy.
+export const revalidate = 3600;
+
 export default async function SchedulePage() {
   const classes: Event[] = await getEvents();
   return (
@@ -62,38 +66,58 @@ export default async function SchedulePage() {
 
           {/* Course details */}
           <div className="mt-12 space-y-6">
-            {longFormCourses.map((course) => (
-              <article
-                key={course.id}
-                id={`course-${course.id}`}
-                className="bg-surface rounded-2xl p-6 md:p-8 border border-sand hover:border-terracotta/40 transition-colors scroll-mt-24"
-              >
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                  <div className="space-y-2 flex-1">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className={`inline-block w-3 h-3 rounded-full ${course.dot}`} />
-                      <span className="text-xs font-medium bg-terracotta/10 text-terracotta px-2.5 py-0.5 rounded-full">
-                        {course.type}
-                      </span>
+            {longFormCourses.map((course) => {
+              const deadlinePassed = new Date() > new Date(`${course.applicationDeadline}T23:59:59`);
+              const deadlineLabel = new Date(`${course.applicationDeadline}T00:00:00`).toLocaleDateString(
+                "en-US",
+                { month: "long", day: "numeric", year: "numeric" }
+              );
+
+              return (
+                <article
+                  key={course.id}
+                  id={`course-${course.id}`}
+                  className="bg-surface rounded-2xl p-6 md:p-8 border border-sand hover:border-terracotta/40 transition-colors scroll-mt-24"
+                >
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                    <div className="space-y-2 flex-1">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className={`inline-block w-3 h-3 rounded-full ${course.dot}`} />
+                        <span className="text-xs font-medium bg-terracotta/10 text-terracotta px-2.5 py-0.5 rounded-full">
+                          {course.type}
+                        </span>
+                      </div>
+                      <h3 className="font-serif text-xl md:text-2xl font-bold text-ink">
+                        {course.title}
+                      </h3>
+                      <p className="text-sm text-ink font-medium">{course.teacher}</p>
+                      <p className="text-sm text-ink-mid">{course.schedule}</p>
+                      <p className="text-ink-mid text-sm leading-relaxed mt-2">{course.body}</p>
+                      <p className="text-xs font-medium text-ink-light mt-2">
+                        {deadlinePassed ? `Applications closed ${deadlineLabel}` : `Apply by ${deadlineLabel}`}
+                      </p>
                     </div>
-                    <h3 className="font-serif text-xl md:text-2xl font-bold text-ink">
-                      {course.title}
-                    </h3>
-                    <p className="text-sm text-ink font-medium">{course.teacher}</p>
-                    <p className="text-sm text-ink-mid">{course.schedule}</p>
-                    <p className="text-ink-mid text-sm leading-relaxed mt-2">{course.body}</p>
+                    {deadlinePassed ? (
+                      <span
+                        aria-disabled="true"
+                        className="flex-shrink-0 inline-flex items-center justify-center px-6 py-3 bg-sand text-ink-light text-sm font-medium rounded-full cursor-not-allowed"
+                      >
+                        Unavailable
+                      </span>
+                    ) : (
+                      <a
+                        href={course.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-shrink-0 inline-flex items-center justify-center px-6 py-3 bg-terracotta text-[#304948] text-sm font-medium rounded-full hover:bg-terracotta-dark transition-colors"
+                      >
+                        Apply
+                      </a>
+                    )}
                   </div>
-                  <a
-                    href={course.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-shrink-0 inline-flex items-center justify-center px-6 py-3 bg-terracotta text-[#304948] text-sm font-medium rounded-full hover:bg-terracotta-dark transition-colors"
-                  >
-                    Apply
-                  </a>
-                </div>
-              </article>
-            ))}
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
