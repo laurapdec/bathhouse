@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description: "What students and participants say about Bathhouse Arts Initiative.",
 };
 
+const SHARE_EXPERIENCE_FORM_URL = "https://forms.gle/32LYVLsGKyqnZtWS6";
+
 export default function TestimonialsPage() {
   return (
     <>
@@ -16,6 +18,14 @@ export default function TestimonialsPage() {
             In their<br />
             <span className="italic text-terracotta">own words.</span>
           </h1>
+          <a
+            href={SHARE_EXPERIENCE_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-6 py-3 mt-6 bg-terracotta text-[#304948] text-sm font-medium rounded-full hover:bg-terracotta-dark transition-colors"
+          >
+            Share your experience
+          </a>
         </div>
       </section>
 

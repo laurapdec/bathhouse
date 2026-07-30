@@ -135,7 +135,8 @@ export default function DonationPicker() {
 
       <p className="text-center text-ink-light text-xs mt-6">
         Secure checkout powered by Givebutter. Bathhouse Arts Initiative is a
-        501(c)(3)-pending organization.
+        qualified 501(c)(3) non-profit organization. All donations are
+        tax-deductible.
       </p>
     </div>
   );

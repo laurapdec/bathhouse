@@ -3,6 +3,9 @@ import { getStrangerStories } from "@/lib/strangers";
 export const STRANGERS_SUBMIT_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSfg92ts7Y_9KIPhUw5RAcSpaALOQr9_pu1XhOuinCqbovVQpQ/viewform?usp=sharing";
 
+export const RETELL_STORY_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSdWQty_lh1rJS4THg99Q2g4UZgkl6QV4aWab1BMwV3xwmD1cg/viewform";
+
 const sampleStories = [
   { label: "Story 1" },
   { label: "Story 2" },
@@ -36,6 +39,7 @@ export default function StrangersInThePark() {
       ? submittedStories.map((story) => ({
           slug: story.slug,
           name: story.name,
+          ageRange: story.ageRange as string | undefined,
           title: story.title as string | undefined,
           excerpt: story.excerpt,
           paragraphs: story.paragraphs,
@@ -43,6 +47,7 @@ export default function StrangersInThePark() {
       : placeholderStoryBank.map((story) => ({
           slug: story.name,
           name: story.name,
+          ageRange: undefined as string | undefined,
           title: undefined as string | undefined,
           excerpt: story.excerpt,
           paragraphs: [] as string[],
@@ -54,12 +59,17 @@ export default function StrangersInThePark() {
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8">
         <div className="space-y-2 flex-1">
           <span className="inline-block text-xs font-medium bg-terracotta/10 text-terracotta px-2.5 py-0.5 rounded-full">Project</span>
-          <h2 className="font-serif text-2xl font-bold text-ink">Strangers in the Park</h2>
+          <h2 className="font-serif text-2xl font-bold text-ink">Story Exchange</h2>
           <p className="text-ink-mid leading-relaxed">
-            Bruno goes to the park and talks with people he's never met. A few of those conversations
-            become short stories, real moments, told with a fictitious name standing in for the real
-            person. Our students turn each one into a scene to act out. Now it's open to anyone in NYC:
-            tell us your own story, or find one that moves you and send us your take.
+            Every person carries stories worth telling. What happens when someone else&rsquo;s memory
+            becomes your own? Story Exchange is a collaborative project that brings together strangers,
+            storytellers, and actors. We collect true stories from everyday people across New York City
+            and preserve them anonymously in a growing library. Each submission is assigned a fictional
+            nickname and shared as a written transcript. Actors are then invited to browse the collection,
+            choose a story that resonates with them, and reinterpret it as if it were their own. The
+            audience is left with a simple question: Who lived it? And who performed it? More than a
+            storytelling project, Story Exchange is an exploration of empathy, imagination, and the
+            remarkable ways we recognize ourselves in someone else&rsquo;s life.
           </p>
         </div>
         <div className="flex-shrink-0 flex flex-col sm:flex-row gap-3">
@@ -69,7 +79,7 @@ export default function StrangersInThePark() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-6 py-3 bg-terracotta text-[#304948] text-sm font-medium rounded-full hover:bg-terracotta-dark transition-colors"
           >
-            Submit Your Story
+            Share your story
           </a>
           <a
             href="#find-a-story"
@@ -94,7 +104,7 @@ export default function StrangersInThePark() {
       </div>
 
       <div id="find-a-story" className="scroll-mt-24">
-        <p className="text-xs font-medium tracking-widest uppercase text-ink-light mb-4">Retell a Story</p>
+        <p className="text-xs font-medium tracking-widest uppercase text-ink-light mb-4">Story Exchange Library</p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {storyBank.map((story) => {
             const hasMore = story.paragraphs.length > 1 || story.excerpt.endsWith("…");
@@ -104,6 +114,11 @@ export default function StrangersInThePark() {
                   {isPlaceholder ? "Sample story" : "Told by " + story.name}
                 </span>
                 <div className="space-y-2 flex-1">
+                  {story.ageRange && (
+                    <p className="text-xs font-medium tracking-widest uppercase text-ink-light">
+                      Age Range: {story.ageRange}
+                    </p>
+                  )}
                   <p className="font-serif text-base font-semibold text-ink">{story.title ?? story.name}</p>
                   {hasMore ? (
                     <details className="group/story">
@@ -141,12 +156,12 @@ export default function StrangersInThePark() {
                   )}
                 </div>
                 <a
-                  href={STRANGERS_SUBMIT_FORM_URL}
+                  href={RETELL_STORY_FORM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="self-center inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-terracotta text-[#304948] text-sm font-medium rounded-full hover:bg-terracotta-dark transition-colors"
                 >
-                  Submit your video
+                  Retell this story
                   <ArrowIcon />
                 </a>
               </div>

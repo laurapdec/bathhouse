@@ -57,31 +57,35 @@ export default function AboutPage() {
               </h2>
               <p className="text-ink-mid leading-relaxed text-lg">
                 Bathhouse Arts Initiative was born from a simple frustration:
-                acting classes in New York City are expensive. Often
-                prohibitively so. The result is a version of the craft that
-                is, by default, only accessible to those who can afford it.
+                meaningful actor training is often financially out of reach,
+                while many experienced artists have valuable knowledge they
+                rarely have the opportunity to pass on.
               </p>
               <p className="text-ink-mid leading-relaxed text-lg">
-                We wanted to build something different: a welcoming and
-                supportive environment for actors at every stage of their
-                journey, rooted in movement, presence, ensemble connection, and
-                improvisation.
+                We believe training should be accessible, collaborative, and
+                rooted in community. Our goal is to create a space where
+                emerging artists can continue developing their craft while
+                experienced practitioners can teach, mentor, experiment, and
+                share what years of work have taught them. Everyone has
+                something to learn, and everyone has something to offer.
               </p>
             </div>
             <div className="space-y-6">
               <h2 className="font-serif text-3xl font-bold text-ink">
-                What we actually do
+                What we do
               </h2>
               <p className="text-ink-mid leading-relaxed text-lg">
-                We run weekly classes ranging from scene study and Meisner technique to voice
-                work, physical theater, and improv. Some are for beginners.
-                Some are for people with experience. Most are for everyone.
+                We produce and promote classes, workshops, creative projects,
+                and community events led by working artists from a wide range
+                of disciplines. Rather than following a single methodology, we
+                invite each instructor to share the tools, perspectives, and
+                practices that have shaped their own artistic journey.
               </p>
               <p className="text-ink-mid leading-relaxed text-lg">
-               Beginners are invited to explore. Veterans are encouraged to teach.
-               Each session runs for two hours, followed by an open stage: 
-               one hour to workshop scenes, monologues, auditions or simply express
-                yourself. No pressure, just presence. The space is yours. 
+                Whether you&rsquo;re taking your very first class or have years
+                of professional experience, Bathhouse is a place to train,
+                collaborate, meet other artists, and continue growing
+                alongside a supportive creative community.
               </p>
             </div>
           </div>
@@ -205,7 +209,7 @@ export default function AboutPage() {
                 The people
               </p>
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-ink">
-                Our instructors
+                Our Collaborators
               </h2>
             </div>
             <a

@@ -26,9 +26,9 @@ export default function OpportunitiesPage() {
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8">
               <div className="space-y-2 flex-1">
                 <span className="inline-block text-xs font-medium bg-terracotta/10 text-terracotta px-2.5 py-0.5 rounded-full">Giveaway</span>
-                <h2 className="font-serif text-2xl font-bold text-ink">Monthly Headshot Raffle</h2>
+                <h2 className="font-serif text-2xl font-bold text-ink">Bathhouse Headshot Draw</h2>
                 <p className="text-ink-mid leading-relaxed">
-                  Every month we raffle a free professional headshot session for one member of our community. Fill out the form to enter and stay posted on the next draw.
+                  Building an acting career shouldn&rsquo;t mean choosing between training and professional materials. Every month, we offer one member of our community a free professional headshot session. Enter for your chance to be selected, and we&rsquo;ll announce a new winner each month.
                 </p>
               </div>
               <a
@@ -37,7 +37,7 @@ export default function OpportunitiesPage() {
                 rel="noopener noreferrer"
                 className="flex-shrink-0 inline-flex items-center justify-center px-6 py-3 bg-terracotta text-[#304948] text-sm font-medium rounded-full hover:bg-terracotta-dark transition-colors"
               >
-                Enter the Raffle
+                Sign-Up Here
               </a>
             </div>
             <p className="text-xs font-medium tracking-widest uppercase text-ink-light mb-4">Winners</p>

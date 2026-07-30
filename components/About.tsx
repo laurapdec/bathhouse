@@ -42,7 +42,7 @@ export default function About({ preview }: Props) {
           <div className="space-y-6">
             <Reveal>
               <p className="text-xs font-medium tracking-widest uppercase text-ink mb-3">
-                Who we are
+                Our Philosophy
               </p>
               <h2 className="font-serif text-4xl md:text-5xl font-bold text-ink leading-tight">
                 Theater belongs<br />to all of us.
@@ -50,16 +50,22 @@ export default function About({ preview }: Props) {
             </Reveal>
 
             <p className="text-ink-mid leading-relaxed text-base md:text-lg">
-              We are a community-led space offering pay-what-you-can weekly
-              acting sessions rooted in movement, presence, ensemble connection,
-              and improvisation.
+              We believe acting is something you practice, not something you
+              finish learning.
             </p>
 
             <p className="text-ink-mid leading-relaxed text-base md:text-lg">
-              Beginners are invited to explore. Veterans are encouraged to teach.
-              Each session runs for two hours, followed by an open stage: one
-              hour to workshop scenes, monologues, auditions, or simply express
-              yourself.
+              Bathhouse brings together actors, teachers, directors, writers,
+              and curious minds to train, create, and learn from one another.
+              No single method. No single path. Just a shared commitment to
+              growth.
+            </p>
+
+            <p className="text-ink-mid leading-relaxed text-base md:text-lg">
+              Whether you&rsquo;re stepping into a studio for the first time or
+              returning after years of experience, you&rsquo;ll find a place to
+              train, collaborate, meet fellow artists, and keep your craft
+              alive.
             </p>
 
             <Reveal delay={200}>
